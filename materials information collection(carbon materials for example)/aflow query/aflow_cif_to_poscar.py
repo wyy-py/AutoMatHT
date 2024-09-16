@@ -15,7 +15,7 @@ print(len(aflow_ids))
 # aflow_subdirs = df_order.subdir
 # aflow_cif_names = df_order.cif_name
 
-for i in range(0, 819):  # 563报错，但转换到586重启，可能586对应id为563.563文件夹对应i=546
+for i in range(0, 819):  
     aflow_cif_path = os.path.join(aflow_folder_path, str(aflow_ids[i]))
 
     if os.path.exists(aflow_cif_path) and os.path.isdir(aflow_cif_path):
