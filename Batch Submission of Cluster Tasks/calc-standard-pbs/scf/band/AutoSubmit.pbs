@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N AutoVASP
+#PBS -l nodes=node007:ppn=52
+#PBS -q et
+#PBS -j oe
+
+EXE='/public/bin/vasp630'
+OUT=LOG.vasp
+
+NPROCS=$(wc -l < "$PBS_NODEFILE")
+cd "$PBS_O_WORKDIR"
+mpirun -machinefile "$PBS_NODEFILE" -np $NPROCS $EXE >|$OUT 2>&1
+
+/public/bin/info_job.sh
