@@ -1,4 +1,0 @@
-phonopy -d --dim="2 2 2"
-./Loop-phonopy.sh $(pwd)/vasp.slurm    # need to prepare the vasp.pbs in advance
-phonopy -f run-*/vasprun.xml; phonopy --factor=521.471 --full-fc --writefc -p -s band.conf; phonopy-bandplot --gnuplot >|band.dat
-phonopy -p -s mesh.conf

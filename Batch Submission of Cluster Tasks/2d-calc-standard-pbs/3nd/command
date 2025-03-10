@@ -1,5 +1,0 @@
-thirdorder_vasp.py sow 2 2 2 -10 >>command
-nohup ./Loop-3nd.sh $(pwd)/vasp.slurm &    # need to prepare the vasp.pbs in advance
-find run-* -name vasprun.xml | thirdorder_vasp.py reap 2 2 2 -10
-
-== LOG ==
