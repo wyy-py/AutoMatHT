@@ -1,0 +1,35 @@
+System = C
+NWRITE=2
+ISTART=0
+ICHARGE=2
+
+ENCUT = 600
+#ISYM=2 #(default)
+
+ALGO=Normal
+PREC = Accureate
+LREAL=.FALSE.
+
+Electronic steps
+NELM=60 # 默认60
+NELMIN=6 # 默认2
+EDIFF  = 1e-6
+
+Ionic steps
+NSW=1
+EDIFFG=-0.00001
+#POTIM=0.5(DEFAULT)
+
+ENCUT = 600
+
+ISMEAR = 0;
+SIGMA = 0.05
+LCHARG = F
+LWAVE  = F
+
+#NPAR = 4
+
+#For EC
+IBRION=6
+ISIF=3
+NFREE=4

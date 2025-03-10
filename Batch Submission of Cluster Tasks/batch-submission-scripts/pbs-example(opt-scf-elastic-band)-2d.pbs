@@ -1,0 +1,55 @@
+#!/bin/bash
+#PBS -N Phon-011
+#PBS -l nodes=node011:ppn=8
+#PBS -q et
+#PBS -j oe
+
+# 用于结构优化-静态自洽-能带计算的pbs集群任务提交脚本示例
+# 需要准备好对应输入文件，内容参考calc-standard-pbs文件夹，并将本文件复制到opt目录下方
+EXE='/public/bin/vasp533_xy'  # 替换为你的vasp安装路径
+OUT=LOG.vasp
+
+NPROCS=$(wc -l < "$PBS_NODEFILE")
+cd "$PBS_O_WORKDIR"
+# 启动第 1 阶段任务 (opt计算)
+# 用vaspkit准备KPOINTS文件，如果没有手动编写的话
+vaspkit -task 102 -kpr 0.025
+# 记录作业开始时间
+date "+01 Today's date is: %D. The time execution %T" >> time.info
+mpirun -machinefile "$PBS_NODEFILE" -np $NPROCS $EXE >|$OUT 2>&1
+# 记录作业结束时间
+date "+02 Today's date is: %D. The time finish %T" >> time.info
+
+# 准备机械性质计算输入文件
+cp ./CONTCAR ./elastic/POSCAR
+cp ./KPOINTS ./elastic/KPOINTS
+cp ./POTCAR ./elastic/POTCAR
+# INCAR文件需要手动设置好参数哦
+cd ./elastic/
+date "+01 Today's date is: %D. The time execution %T" >> time.info
+mpirun -machinefile "$PBS_NODEFILE" -np $NPROCS $EXE >|$OUT 2>&1
+date "+02 Today's date is: %D. The time finish %T" >> time.info
+
+# 退出到opt目录下，准备自洽计算输入文件
+cd ../
+cp ./CONTCAR ./scf/POSCAR
+cp ./KPOINTS ./scf/KPOINTS
+cp ./POTCAR ./scf/POTCAR
+# 进入到 2_scf 目录并执行自洽计算
+cd ./scf/
+date "+01 Today's date is: %D. The time execution %T" >> time.info
+mpirun -machinefile "$PBS_NODEFILE" -np $NPROCS $EXE >|$OUT 2>&1
+date "+02 Today's date is: %D. The time finish %T" >> time.info
+
+cp ./CONTCAR ./band/POSCAR
+cp ./POTCAR ./band/POTCAR
+cp ./WAVECAR ./band/
+cd ./band/
+# 生成高对称点路径并创建 KPOINTS 文件，在此之前请确保已经正确安装了vaspkit软件
+vaspkit -task 303
+mv KPATH.in KPOINTS
+date "+01 Today's date is: %D. The time execution %T" >> time.info
+mpirun -machinefile "$PBS_NODEFILE" -np $NPROCS $EXE >|$OUT 2>&1
+date "+02 Today's date is: %D. The time finish %T" >> time.info
+
+/public/bin/info_job.sh

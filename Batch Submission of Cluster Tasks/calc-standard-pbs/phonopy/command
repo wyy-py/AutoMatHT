@@ -1,0 +1,4 @@
+phonopy -d --dim="5 5 1"
+./Loop-phonopy.sh $(pwd)/AutoSubmit.pbs    # need to prepare the vasp.pbs in advance
+phonopy -f run-*/vasprun.xml; phonopy --factor=521.471 --full-fc --writefc -p -s band.conf; phonopy-bandplot --gnuplot >|band.dat
+phonopy -p -s mesh.conf
