@@ -26,7 +26,7 @@ calc-standard-pbs：3D块体材料计算示例文件夹，材料结构文件需�
 批量提交任务脚本：
 
 calc-standard-pbs包含了所需准备的任务模版文件夹，其中INCAR部分参数需要进一步修改，POSCAR需要替换，文件结构为：
-
+```
 calc-standard-pbs/
 
 └──  AutoSubmit.pbs
@@ -66,9 +66,9 @@ calc-standard-pbs/
     ├── Loop-phonopy.sh
     
     └── mesh.conf
-    
+```  
 batch-submission-scripts是批量提交任务的代码，文件结构为：
-
+```
 batch-submission-scripts
 
 └──  opt_scf_elastic_to_band-batch-calc.py  一次性提交从结构优化-自洽/机械性质-能带计算的所有任务
@@ -86,4 +86,4 @@ batch-submission-scripts
 └──  vasp-example(opt-scf-elastic-band)-2d.slurm  二维材料任务提交脚本（slurm集群）
 
 └── vasp-example(opt-scf-elastic-band).slurm  块体材料任务提交脚本（slurm集群）
-
+```
