@@ -29,9 +29,9 @@ calc-standard-pbs包含了所需准备的任务模版文件夹，其中INCAR部�
 
 calc-standard-pbs/
 
-├── AutoSubmit.pbs
+└──  AutoSubmit.pbs
 
-├── opt
+└──  opt
 
 │   ├── elastic
 
@@ -71,19 +71,19 @@ batch-submission-scripts是批量提交任务的代码，文件结构为：
 
 batch-submission-scripts
 
-├── opt_scf_elastic_to_band-batch-calc.py  一次性提交从结构优化-自洽/机械性质-能带计算的所有任务
+└──  opt_scf_elastic_to_band-batch-calc.py  一次性提交从结构优化-自洽/机械性质-能带计算的所有任务
 
-├── pbs-example(opt-scf-elastic-band)-2d.pbs 二维材料任务提交脚本（pbs集群）
+└──  pbs-example(opt-scf-elastic-band)-2d.pbs 二维材料任务提交脚本（pbs集群）
 
-├── pbs-example(opt-scf-elastic-band).pbs  块体材料任务提交脚本（pbs集群）
+└──  pbs-example(opt-scf-elastic-band).pbs  块体材料任务提交脚本（pbs集群）
 
-├── phonopy-batch-submit.py  声子谱任务提交
+└──  phonopy-batch-submit.py  声子谱任务提交
 
-├── sacada_phonopy_post-process.py 声子谱计算结果后处理，得到热容、自由能、热膨胀系数等
+└──  sacada_phonopy_post-process.py 声子谱计算结果后处理，得到热容、自由能、热膨胀系数等
 
-├── sacada_qsub_opt_identify-error.py 查看结构优化过程中可能存在的问题
+└──  sacada_qsub_opt_identify-error.py 查看结构优化过程中可能存在的问题
 
-├── vasp-example(opt-scf-elastic-band)-2d.slurm  二维材料任务提交脚本（slurm集群）
+└──  vasp-example(opt-scf-elastic-band)-2d.slurm  二维材料任务提交脚本（slurm集群）
 
 └── vasp-example(opt-scf-elastic-band).slurm  块体材料任务提交脚本（slurm集群）
 
