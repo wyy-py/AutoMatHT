@@ -13,4 +13,5 @@ data clean scripts：结构清洗、去重、结构转换、2D和3D材料分类
 calc-standard-pbs：3D材料计算示例文件夹，材料结构文件需要自行准备，部分参数需要调整
 2d-calc-standard-pbs：2D材料计算示例文件夹，材料结构文件需要自行准备，部分参数需要调整
 批量提交任务脚本：
-sacada_calculation
+calc-standard-pbs包含了所需准备的任务模版文件夹，其中部分参数需要进一步修改
+batch-submission-scripts是批量提交任务的代码
