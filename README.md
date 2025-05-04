@@ -5,7 +5,7 @@ The repository includes a collection of practical scripts designed to retrieve m
 
 # 材料数据库结构爬取
 
-详细代码参考：Materials-Information-Collection/materials information collection(carbon materials for example)
+详细代码见文件夹：Materials-Information-Collection/materials information collection(carbon materials for example)
 
 OQMD_query.py：批量获取OQMD数据库的材料结构
 
