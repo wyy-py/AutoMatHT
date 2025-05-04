@@ -1,4 +1,4 @@
-# Materials-Information-Collection & high computational workflow
+# AutoMatHT: Materials-Information-Collection & high computational workflow
 This guide provides a step-by-step guideline on building a material database for training models. 
 The repository includes a collection of practical scripts designed to retrieve material structures from the latest online databases and perform thorough material data cleaning.
 ![image](https://github.com/user-attachments/assets/bba9337d-b5f2-4916-9873-0915c6c8f642)
